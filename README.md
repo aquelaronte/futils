@@ -42,13 +42,13 @@ fs
 # this command will retrieve all files that contains word "Car" from cwd (examples: Cargo.toml, rawCar.js, wildCards/)
 fs -s Car
 
-# this command will create a folder and list files from cwd (new folder or included)
+# this command will create a folder and list files from cwd (new folder or file included)
 fs --add folder/
 
-# this command will list all files from ../../
+# this command will list all files and folders from ../../
 fs ../../
 
-# this command will list all files that contains word "Car" from ../../
+# this command will list all files and folders that contains word "Car" from ../../
 fs ../../ -S Car
 
 # this command will create a file named app.ts inside src/ folder and will list all json files from src/ folder that containts "ot" on its name (example: notes.json, root.json)
@@ -61,8 +61,7 @@ fs src --add app.ts -f json -S ot
 ## Program Flow
 
 When the user executes fs, it follows a specific flow to list files:
-	1.	Listing Files:
-	•	Initially, fs retrieves all files from the specified path. If no path is provided by the user, it defaults to ./.
+1. Listing Files: Initially, fs retrieves all files from the specified path. If no path is provided by the user, it defaults to ./.
 	2.	Adding Files or Folders:
 	•	If the user uses the --add flag, fs creates a folder or a file. To create a folder, append a slash / at the end of the folder’s name. The created file is then added to the list of files retrieved in step 1. If the flag’s argument is empty, fs does not create anything.
 	3.	Filtering by Regex (-r or --regex):
