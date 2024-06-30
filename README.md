@@ -61,7 +61,6 @@ fs src --add app.ts -f json -S ot
 ## Program Flow
 
 When the user executes fs, it follows a specific flow to list files:
-
 	1.	Listing Files:
 	•	Initially, fs retrieves all files from the specified path. If no path is provided by the user, it defaults to ./.
 	2.	Adding Files or Folders:
@@ -74,7 +73,6 @@ When the user executes fs, it follows a specific flow to list files:
 	•	If the -f or --file-type flag is used, fs compares the argument of the flag with the file extensions of the remaining files after steps 3 and 4.
 
 In summary, the flow of fs can be summarized as follows:
-
 	•	Files created using the --add flag are included in the list of files processed by fs.
 	•	If a created file’s name does not match any of fs’s filters, it is excluded from further processing.
 	•	The sequence of operations is: add -> regex -> search -> file type -> files list.
