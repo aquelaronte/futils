@@ -15,7 +15,11 @@ pub fn create_table(files: Vec<FileInfo>) -> Table {
 
     for file in files {
         let formatted_size = parsers::from_bytes_to_formatted_size(file.size);
-        let formatted_name = format!("{}", file.name);
+        let formatted_name = if file.extension.as_str() == "/" {
+            format!("{}/", file.name)
+        } else {
+            format!("{}", file.name)
+        };
 
         files_table.add_row(Row::new(vec![
             Cell::new(formatted_name.as_str()),

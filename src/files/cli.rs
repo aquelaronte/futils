@@ -15,4 +15,7 @@ pub struct Cli {
 
     #[arg(short, long, default_value = "*")]
     pub file_type: String,
+
+    #[arg(long, default_value = "")]
+    pub add: String,
 }
