@@ -52,7 +52,11 @@ fs ../../
 fs ../../ -S Car
 
 # this command will create a file named app.ts inside src/ folder and will list all json files from src/ folder that containts "ot" on its name (example: notes.json, root.json)
+<<<<<<< Updated upstream
 fs src --add app.ts -f json -S ot
+=======
+fs src --add app.ts -f json -s ot
+>>>>>>> Stashed changes
 ```
 
 ### Important
@@ -62,6 +66,7 @@ fs src --add app.ts -f json -S ot
 
 When the user executes fs, it follows a specific flow to list files:
 1. Listing Files: Initially, fs retrieves all files from the specified path. If no path is provided by the user, it defaults to ./.
+<<<<<<< Updated upstream
 	2.	Adding Files or Folders:
 	•	If the user uses the --add flag, fs creates a folder or a file. To create a folder, append a slash / at the end of the folder’s name. The created file is then added to the list of files retrieved in step 1. If the flag’s argument is empty, fs does not create anything.
 	3.	Filtering by Regex (-r or --regex):
@@ -75,3 +80,14 @@ In summary, the flow of fs can be summarized as follows:
 	•	Files created using the --add flag are included in the list of files processed by fs.
 	•	If a created file’s name does not match any of fs’s filters, it is excluded from further processing.
 	•	The sequence of operations is: add -> regex -> search -> file type -> files list.
+=======
+2. Adding Files or Folders: If the user uses the --add flag, fs creates a folder or a file. To create a folder, append a slash / at the end of the folder’s name. The created file is then added to the list of files retrieved in step 1. If the flag’s argument is empty, fs does not create anything.
+3. Filtering by Regex (-r or --regex): If the user specifies the -r or --regex flag, fs filters out files whose names do not match the provided regular expression. By default, this regex is .*.
+4. Filtering by Search (-s or --search): When the -s or --search flag is used, fs applies a case-sensitive regular expression (`.*<SEARCH>.*`) to filter files by their names. Files that do not match this criterion are removed from the list filtered in step 3.
+5. Filtering by File Type (-f or --file-type): If the -f or --file-type flag is used, fs compares the argument of the flag with the file extensions of the remaining files after steps 3 and 4.
+
+In summary, the flow of fs can be summarized as follows:
+- Files created using the --add flag are included in the list of files processed by fs.
+- If a created file’s name does not match any of fs’s filters, it is excluded from further processing.
+- The sequence of operations is: add -> regex -> search -> file type -> files list.
+>>>>>>> Stashed changes

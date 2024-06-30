@@ -13,14 +13,15 @@ use crate::files::{
 
 pub fn main(files: &mut Vec<FileInfo>) {
     let add = Cli::parse().add;
+    let route = Cli::parse().path;
 
     if add.as_str().trim() == "" {
         return;
     }
 
-    let path = Path::new(add.as_str()).to_path_buf();
+    let path = Path::new(format!("{}/{}", route, add).as_str()).to_path_buf();
     if add.ends_with('/') {
-        fs::create_dir(&add).expect("Error when creating directory");
+        fs::create_dir(&path).expect("Error when creating directory");
         let metadata = path.metadata().expect("Failed getting metadata");
 
         let file_info = FileInfo {
@@ -36,7 +37,7 @@ pub fn main(files: &mut Vec<FileInfo>) {
         let data = OpenOptions::new()
             .write(true)
             .create(true)
-            .open(&add)
+            .open(&path)
             .expect("Error when creating file");
 
         let file_info = from_file_to_fileinfo(data, path).expect("Error when parsing to file info");
