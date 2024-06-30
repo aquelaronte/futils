@@ -1,0 +1,11 @@
+[package]
+name = "futils"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+chrono = "0.4.38"
+chrono-tz = "0.9.0"
+clap = { version = "4.5.8", features = ["derive"] }
+prettytable = "0.10.0"
+regex = "1.10.5"
