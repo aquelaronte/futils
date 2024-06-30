@@ -51,8 +51,8 @@ fs ../../
 # this command will list all files and folders that contains word "Car" from ../../
 fs ../../ -S Car
 
-# this command will create a file named app.ts inside src/ folder and will list all json files from src/ folder that containts "ot" on its name (example: notes.json, root.json)
-fs src --add app.ts -f json -s ot
+# this command will create a file named app.ts inside src/config/ folder and will list all json files from src/ folder that containts "ot" on its name (example: notes.json, root.json)
+fs src --add config/app.ts -f json -s ot
 ```
 
 ### Important
