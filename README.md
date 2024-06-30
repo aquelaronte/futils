@@ -56,7 +56,7 @@ fs src --add app.ts -f json -s ot
 ```
 
 ### Important
-`--add` flag doesn't create folders recursively, by example: `fs src/config --add init.ts` will not works if config folder is not created, also `fs src --add config/init.ts` will not work in that case too
+`--add` flag doesn't create folders recursively, for example: `fs src/config --add init.ts` will not works if config folder is not created, also `fs src --add config/init.ts` will not work in that case too
 
 ## Program Flow
 
